@@ -46,6 +46,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpdateItemRule.cs" />
     <Compile Include="UpdateItemRules\AgedBrieRule.cs" />
+    <Compile Include="UpdateItemRules\BackstagePassRule.cs" />
     <Compile Include="UpdateItemRules\GenericItemRule.cs" />
     <Compile Include="UpdateItemRules\ItemRuleDefaults.cs" />
     <Compile Include="UpdateItemRules\LegacyItemRule.cs" />

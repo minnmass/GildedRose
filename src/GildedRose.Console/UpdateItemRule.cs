@@ -6,6 +6,7 @@ namespace GildedRose.Console {
 		private static readonly IReadOnlyDictionary<string, IUpdateItemRule> _rules = new Dictionary<string, IUpdateItemRule> {
 			{ "Sulfuras, Hand of Ragnaros", new UnchangingItemRule() },
 			{ "Aged Brie", new AgedBrieRule() },
+			{ "Backstage passes to a TAFKAL80ETC concert", new BackstagePassRule() },
 		};
 
 		private static readonly IUpdateItemRule GenericUpdateRule = new LegacyItemRule();
