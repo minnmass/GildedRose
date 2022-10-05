@@ -30,14 +30,9 @@ namespace GildedRose.Console {
 		}
 
 		public void UpdateQuality() {
-			for (var i = 0; i < Items.Count; i++) {
-				Item item = Items[i];
-				LegacyQualityUpdate(item);
+			foreach(var item in Items) {
+				UpdateItemRuleFactory.Update(item);
 			}
-		}
-
-		private void LegacyQualityUpdate(Item item) {
-			UpdateItemRuleFactory.Update(item);
 		}
 	}
 
