@@ -18,5 +18,17 @@ namespace GildedRose.Tests {
 
 			Assert.Equal(initialQuality, item.Quality);
 		}
+
+		[Fact]
+		public void SellInNotDecremented() {
+			const int initialQuality = 42;
+			const int sellIn = 20;
+			var item = new Item { Name = Name, Quality = initialQuality, SellIn = sellIn };
+
+			var sut = new Program { Items = new[] { item } };
+			sut.UpdateQuality();
+
+			Assert.Equal(sellIn, item.SellIn);
+		}
 	}
 }
