@@ -47,6 +47,7 @@
     <Compile Include="UpdateItemRule.cs" />
     <Compile Include="UpdateItemRules\GenericItemRule.cs" />
     <Compile Include="UpdateItemRules\LegacyItemRule.cs" />
+    <Compile Include="UpdateItemRules\UnchangingItemRule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
