@@ -5,6 +5,7 @@ namespace GildedRose.Console {
 	internal static class UpdateItemRuleFactory {
 		private static readonly IReadOnlyDictionary<string, IUpdateItemRule> _rules = new Dictionary<string, IUpdateItemRule> {
 			{ "Sulfuras, Hand of Ragnaros", new UnchangingItemRule() },
+			{ "Aged Brie", new AgedBrieRule() },
 		};
 
 		private static readonly IUpdateItemRule GenericUpdateRule = new LegacyItemRule();
