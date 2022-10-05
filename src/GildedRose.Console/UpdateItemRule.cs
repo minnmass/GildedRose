@@ -1,0 +1,22 @@
+﻿using GildedRose.Console.UpdateItemRules;
+using System.Collections.Generic;
+
+namespace GildedRose.Console {
+	internal static class UpdateItemRuleFactory {
+		private static readonly IReadOnlyDictionary<string, IUpdateItemRule> _rules = new Dictionary<string, IUpdateItemRule> {
+			{ "Sulfuras, Hand of Ragnaros", new UnchangingItemRule() },
+			{ "Aged Brie", new AgedBrieRule() },
+			{ "Backstage passes to a TAFKAL80ETC concert", new BackstagePassRule() },
+		};
+
+		private static readonly IUpdateItemRule GenericUpdateRule = new GenericItemRule();
+
+		public static void Update(Item item) {
+			(_rules.TryGetValue(item.Name, out var rule) ? rule : GenericUpdateRule).Update(item);
+		}
+	}
+
+	internal interface IUpdateItemRule {
+		void Update(Item item);
+	}
+}

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-public class BackstagePassTests {
-	private const string Name = "Backstage passes to a TAFKAL80ETC concert";
+namespace GildedRose.Tests {
+	public class BackstagePassTests {
+		private const string Name = "Backstage passes to a TAFKAL80ETC concert";
 
-	public static IEnumerable<object[]> TestData {
-		get {
-			return new[] {
+		public static IEnumerable<object[]> TestData {
+			get {
+				return new[] {
 				new TestDatum {
 					SellIn = 11,
 					InitialQuality = 10,
@@ -85,28 +86,29 @@ public class BackstagePassTests {
 					ExpectedQuality = 50,
 				},
 			}
-			.Select(i => new object[] { i });
+				.Select(i => new object[] { i });
+			}
+		}
+
+		[Theory]
+		[MemberData(nameof(TestData))]
+		public void BackstagePassRulesFollowed(TestDatum datum) {
+			var item = new Item { Name = Name, Quality = datum.InitialQuality, SellIn = datum.SellIn };
+
+			var sut = new Program { Items = new[] { item } };
+			sut.UpdateQuality();
+
+			Assert.Equal(datum.ExpectedQuality, item.Quality);
 		}
 	}
 
-	[Theory]
-	[MemberData(nameof(TestData))]
-	public void BackstagePassRulesFollowed(TestDatum datum) {
-		var item = new Item { Name = Name, Quality = datum.InitialQuality, SellIn = datum.SellIn };
+	public struct TestDatum {
+		public int SellIn;
+		public int InitialQuality;
+		public int ExpectedQuality;
 
-		var sut = new Program { Items = new[] { item } };
-		sut.UpdateQuality();
-
-		Assert.Equal(datum.ExpectedQuality, item.Quality);
-	}
-}
-
-public struct TestDatum {
-	public int SellIn;
-	public int InitialQuality;
-	public int ExpectedQuality;
-
-	public override string ToString() {
-		return $"SI {SellIn}; IQ {InitialQuality}; EQ {ExpectedQuality}";
+		public override string ToString() {
+			return $"SI {SellIn}; IQ {InitialQuality}; EQ {ExpectedQuality}";
+		}
 	}
 }
