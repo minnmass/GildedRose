@@ -49,7 +49,6 @@
     <Compile Include="UpdateItemRules\BackstagePassRule.cs" />
     <Compile Include="UpdateItemRules\GenericItemRule.cs" />
     <Compile Include="UpdateItemRules\ItemRuleDefaults.cs" />
-    <Compile Include="UpdateItemRules\LegacyItemRule.cs" />
     <Compile Include="UpdateItemRules\UnchangingItemRule.cs" />
   </ItemGroup>
   <ItemGroup>

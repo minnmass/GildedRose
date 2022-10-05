@@ -9,7 +9,7 @@ namespace GildedRose.Console {
 			{ "Backstage passes to a TAFKAL80ETC concert", new BackstagePassRule() },
 		};
 
-		private static readonly IUpdateItemRule GenericUpdateRule = new LegacyItemRule();
+		private static readonly IUpdateItemRule GenericUpdateRule = new GenericItemRule();
 
 		public static void Update(Item item) {
 			(_rules.TryGetValue(item.Name, out var rule) ? rule : GenericUpdateRule).Update(item);
