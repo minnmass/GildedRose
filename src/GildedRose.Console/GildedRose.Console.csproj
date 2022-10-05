@@ -44,6 +44,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateItemRule.cs" />
+    <Compile Include="UpdateItemRules\GenericItemRule.cs" />
+    <Compile Include="UpdateItemRules\LegacyItemRule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
