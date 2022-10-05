@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="AgedBrieTests.cs" />
     <Compile Include="BackstagePassTests.cs" />
+    <Compile Include="ConjuredItemTests.cs" />
     <Compile Include="GenericItemTests.cs" />
     <Compile Include="ProgramTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
